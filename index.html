@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documento1</title>
 </head>
 <body>
     <h3>Lista de Alunos</h3>
@@ -39,9 +39,9 @@
                     <button onclick="cadastrar()">cadastrar</button>
 
 <script>
-
+ 
  function cadastrar() {
-        var token = "";
+        var token = "675635ae0818440bb41900c33d0045e6";
           // Exemplo de requisição POST para adicionar uma nova pessoa
         fetch("https://crudcrud.com/api/"+token+"/pessoas", {
         // metodo de requisição (get, post, put, delete)
@@ -50,6 +50,8 @@
         headers: {
             "Content-Type": "application/json"
         },
+
+       
         // corpo da requisição (dados que serão enviados)
         body: JSON.stringify({
             nome: document.getElementById('nome').value,
@@ -63,17 +65,19 @@
         .catch(error => console.error("Erro no POST:", error))
         .finally(() => {
             // redirecionar para a pagina inicial
-            setTimeout(window.location.href = "crudcrud.php", 2000);
+            setTimeout(window.location.href = "index.html", 2000);
             
         });
     }
 
-var token = "";
+var token = "675635ae0818440bb41900c33d0045e6";
          // Exemplo de requisição GET para listar pessoas
         fetch("https://crudcrud.com/api/"+token+"/pessoas")
         .then(response => response.json())
         .then(data => console.log(data) )
         .catch(error => console.error("Erro no GET:", error));
+ 
+ 
         </script>
 </body>
 </html>
