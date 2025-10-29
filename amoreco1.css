@@ -1,0 +1,145 @@
+/* Reset básico e fundo 'amoreco' */
+* {
+    box-sizing: border-box; /* Isso ajuda a controlar o tamanho das caixas */
+  }
+  
+  html {
+    background-color: #FFF5F7; /* Fundo da página rosa bem clarinho */
+    background-image: url(https://a1b8cafd5e.cbaul-cdnwnd.com/92cbf22568666270c6e01b13736da368/200000081-875d388577/tumblr_muivg5q5B51sgvgllo1_500.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #5C3A5A; /* Um roxo/vinho escuro e suave */
+    background-color: #FFFFFF; /* Conteúdo principal em um 'cartão' branco */
+    max-width: 800px;
+    margin: 30px auto; /* Centraliza o cartão na página */
+    padding: 25px 40px;
+    border-radius: 16px; /* Bordas bem arredondadas, super fofo! */
+    box-shadow: 0 8px 16px rgba(92, 58, 90, 0.1); /* Sombra suave para destacar */
+  }
+  
+  /* Títulos (h3) */
+  h3 {
+    color: #E57399; /* Rosa chiclete */
+    border-bottom: 2px dashed #FAD0E0; /* Borda pontilhada fofinha */
+    padding-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Tabela de Alunos */
+  #tabelaAlunos {
+    width: 100%;
+    border-collapse: collapse; /* Tira as bordas duplas */
+    border-radius: 10px; /* Arredonda a tabela */
+    overflow: hidden; /* Garante que o 'radius' funcione nas células */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #FCE4EC; /* Borda rosa bem clara */
+    /* Remove a borda padrão do HTML */
+    border-style: hidden;
+  }
+  
+  /* Cabeçalho da Tabela */
+  #tabelaAlunos thead tr {
+    background-color: #FCE4EC; /* Fundo do cabeçalho rosa bebê */
+    color: #D94A8C; /* Texto do cabeçalho rosa mais forte */
+    font-weight: bold;
+    
+  }
+  
+  /* Células da Tabela (Cabeçalho e Corpo) */
+  #tabelaAlunos th,
+  #tabelaAlunos td {
+    padding: 14px 18px;
+    text-align: left;
+  }
+  
+  /* Linhas do Corpo da Tabela */
+  #tabelaAlunos tbody tr {
+    border-bottom: 1px solid #FCE4EC; /* Linha separadora suave */
+    background-color: #FFFFFF;
+    transition: background-color 0.2s ease; /* Transição suave no hover */
+  }
+  
+  /* Efeito 'hover' nas linhas (passar o mouse) */
+  #tabelaAlunos tbody tr:hover {
+    background-color: #FFF8FA; /* Um 'hover' rosa quase imperceptível */
+  }
+  
+  /* Tira a borda da última linha */
+  #tabelaAlunos tbody tr:last-child {
+    border-bottom: none;
+  }
+  
+  /* Linha Separadora (hr) */
+  hr {
+    border: 0;
+    height: 1px;
+    background: #FAD0E0; /* Linha rosa clara */
+    margin: 35px 0;
+  }
+  
+  /* Formulário de Adicionar Aluno */
+  /* Deixa os rótulos (Nome:, etc) mais alinhadinhos */
+  body {
+      line-height: 2.5;
+  }
+  
+  /* Inputs de texto e data */
+  input[type="text"],
+  input[type="date"] {
+    padding: 10px 12px;
+    border: 2px solid #FAD0E0; /* Borda rosa clara */
+    border-radius: 8px; /* Cantos arredondados */
+    background-color: #FFF;
+    font-size: 14px;
+    color: #5C3A5A;
+    margin-left: 8px; /* Espaço do 'label' (Nome:, etc) */
+    margin-bottom: 10px; /* Espaço entre as linhas */
+    min-width: 280px;
+    transition: all 0.2s ease; /* Transição suave no 'focus' */
+  }
+  
+  /* Efeito 'focus' nos inputs (quando clica) */
+  input[type="text"]:focus,
+  input[type="date"]:focus {
+    border-color: #E57399; /* Borda fica rosa forte */
+    box-shadow: 0 0 8px #FCE4EC; /* Brilho rosa suave */
+    outline: none; /* Tira o brilho padrão do navegador */
+  }
+  
+  /* Botão de Cadastrar */
+  button {
+    background: linear-gradient(45deg, #E57399, #D94A8C); /* Gradiente rosa fofo */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(217, 74, 140, 0.2);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Efeito 'hover' do botão */
+  button:hover {
+    box-shadow: 0 6px 10px rgba(217, 74, 140, 0.3);
+    transform: translateY(-2px); /* Efeito de 'levantar' */
+  }
+  
+  /* Efeito 'active' (click) do botão */
+  button:active {
+    transform: translateY(1px); /* Efeito de 'pressionar' */
+    box-shadow: 0 2px 4px rgba(217, 74, 140, 0.2);
+  }
