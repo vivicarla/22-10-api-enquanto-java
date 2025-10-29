@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,49 @@
    <input type="text" id="endereco" name="endereco" value="">
    <br>
    <input type="hidden" name="acao" value="inserir">
-   <button onclick="cadastrar()" >cadastrar</button>
+   <button onclick="atualizar()" >cadastrar</button>
+   <!--<script src="atualizar.js"></script>-->
+   <script>
+
+      //pegar parâmetros da URL
+      const parametros = new URLSearchParams(window.location.search);
+      //pegar o valor do parâmetro id
+      var id = parametros.get("id")
+      var nome = parametros.get("nome")
+      var tel = parametros.get("tel")
+      var end = parametros.get("end")
+      var data = parametros.get("data")
+      // colocar os valores nos campos
+      document.getElementById('nome').value = nome
+      document.getElementById('telefone').value = tel
+      document.getElementById('endereco').value = end
+      document.getElementById('nascimento').value = data
+
+      function atualizar() {
+        var token = "d0628475394041d7b9f82c7a46c5a266";
+        var pessoa = `<?= $_GET['id']; ?>`
+        //  Exemplo de requisição PUT para atualizar uma pessoa existente
+        fetch("https://crudcrud.com/api/"+token+"/pessoas/"+id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nome: document.getElementById('nome').value,
+                nascimento: document.getElementById('nascimento').value,
+                endereco: document.getElementById('endereco').value,
+                telefone: document.getElementById('telefone').value
+            })
+            })
+            .then(() => console.log("Pessoa atualizado com sucesso"))
+            .catch(error => console.log(error))
+            .finally(() => {
+            // redirecionar para a pagina inicial
+            setTimeout(window.location.href = "index1.html", 2000);
+            
+        });
+    }
+   </script>
 </body>
+ 
 </html>

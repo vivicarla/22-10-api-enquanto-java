@@ -1,0 +1,85 @@
+var token = "966fa25784b1417988ea3b012779066a";
+// Exemplo de requisição GET para listar pessoas
+fetch("https://crudcrud.com/api/" + token + "/pessoas")
+    .then(response => response.json())
+    .then(data => botaTabela(data))
+    .catch(error => console.error("Erro no GET:", error));
+
+
+// criamos a função botaTabela que recebe os DADOS da API de parametro
+function botaTabela(pessoas) {
+    console.log(pessoas);
+    // cria a variavel tabela que pega o corpo da tabela pelo ID
+    // pega a tag Tbody dentro da tabela 
+    // [0] pq getElementsByTagName retorna um array e queremos o primeiro elemento deste array
+    var tabela = document.getElementById("tabelaAlunos").getElementsByTagName("tbody")[0];
+    // inserir os Dados na tabela a partir da variavel do parametro pessoas
+    // foreach (enquanto)
+    pessoas.forEach(function (elemento) {
+        //  CRIANDO UMA LINHA USANDO UMA FUNÇÃO DO JAVASCRIPT
+        var linha = tabela.insertRow();
+        // criando a celula 0 da linha trabalhada
+        var celulaNome = linha.insertCell(0);
+        var celulaNascimento = linha.insertCell(1);
+        var celulaTelefone = linha.insertCell(2);
+        var celulaEndereco = linha.insertCell(3);
+        var celulaExcluir = linha.insertCell(4);
+        var celulaAtualizar = linha.insertCell(5);
+        // colocando os valores nas celulas criadas
+        celulaNome.innerHTML = elemento.nome;
+        celulaNascimento.innerHTML = elemento.nascimento;
+        celulaTelefone.innerHTML = elemento.telefone;
+        celulaEndereco.innerHTML = elemento.endereco;
+        celulaExcluir.innerHTML = '<button onclick="excluir(\'' + elemento._id + '\')">Excluir</button>';
+        celulaAtualizar.innerHTML = '<button onclick="atualizar(\'' + elemento._id + '\',\'' + elemento.nome + '\',\'' + elemento.telefone + '\',\'' + elemento.endereco + '\',\'' + elemento.nascimento + '\')">Atualizar</button>';
+    })
+}
+
+function atualizar(id, nome, tel, end, data) {
+    window.location.href = "atualizarPessoa.html?id=" + id + "&nome=" + nome + "&tel=" + tel + "&end=" + end + "&data=" + data,{
+        method: "GET"
+    }
+}
+
+
+
+function excluir(id) {
+    var token = "966fa25784b1417988ea3b012779066a";
+    fetch("https://crudcrud.com/api/" + token + "/pessoas/" + id, {
+        method: "DELETE"
+    })
+        .catch(error => console.error("Erro no DELETE:", error))
+        .finally(() => {
+            // redirecionar para a pagina inicial
+            setTimeout(window.location.href = "home.html", 2000);
+
+        });
+}
+
+function cadastrar() {
+    var token = "966fa25784b1417988ea3b012779066a";
+    // Exemplo de requisição POST para adicionar uma nova pessoa
+    fetch("https://crudcrud.com/api/" + token + "/pessoas", {
+        // metodo de requisição (get, post, put, delete)
+        method: "POST",
+        // cabeçalho da requisição(tipo de conteudo, autorizações, etc...)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // corpo da requisição (dados que serão enviados)
+        body: JSON.stringify({
+            nome: document.getElementById('nome').value,
+            nascimento: document.getElementById('nascimento').value,
+            endereco: document.getElementById('endereco').value,
+            telefone: document.getElementById('telefone').value
+
+        })
+    })
+        .then(response => response.json())
+        .then(data => console.log("pessoa criado:", data))
+        .catch(error => console.error("Erro no POST:", error))
+        .finally(() => {
+            // redirecionar para a pagina inicial
+            setTimeout(window.location.href = "index.html", 2000);
+        });
+}
